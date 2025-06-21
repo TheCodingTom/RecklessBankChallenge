@@ -3,11 +3,13 @@ package com.example.mySpringProject;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
+// app’s main launcher: the Spring Boot equivalent of node index.js
+
 @SpringBootApplication
-public class MySpringProjectApplication {
+public class RecklessBank {
 
 	public static void main(String[] args) {
-		SpringApplication.run(MySpringProjectApplication.class, args);
+		SpringApplication.run(RecklessBank.class, args);
 	}
 
 }
