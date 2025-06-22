@@ -35,9 +35,9 @@ public class BankController {
     }
 
     @PostMapping("/accounts/{id}/deposit")
-    public void deposit(@PathVariable String id, @RequestBody Map<String, String> body) {
+    public Account deposit(@PathVariable String id, @RequestBody Map<String, String> body) {
         BigDecimal amount = new BigDecimal(body.get("amount"));
-        bankService.deposit(id, amount);
+        return bankService.deposit(id, amount);
     }
 
     @PostMapping("/accounts/{id}/withdraw")
@@ -47,4 +47,11 @@ public class BankController {
     }
 
     // Add transfer endpoint here
+    @PostMapping("accounts/{fromId}/transfer/{toId}")
+    public Account transfer(@PathVariable String fromId, @PathVariable String toId,
+            @RequestBody Map<String, String> body) {
+
+        BigDecimal amount = new BigDecimal(body.get("amount"));
+        return bankService.transfer(fromId, toId, amount);
+    }
 }
