@@ -1,10 +1,10 @@
 package com.example.mySpringProject.model;
 
-import java.math.BigDecimal; // with BigDecimal (and not float or double) money calculations are exact
+import java.math.BigDecimal;
 
 public class Account {
     private String id;
-    private BigDecimal balance;
+    private BigDecimal balance; // with BigDecimal (and not float or double) money calculations are exact
 
     // constructor to create new accounts
     public Account(String id) {
