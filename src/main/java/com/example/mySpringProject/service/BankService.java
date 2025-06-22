@@ -30,7 +30,15 @@ public class BankService {
         account.deposit(amount);
     }
 
-    // public void withdraw(String id, BigDecimal amount) { ... }
+    public Account withdraw(String id, BigDecimal amount) {
+        Account account = accounts.get(id);
+        if (account == null) {
+            throw new IllegalArgumentException("Account not found: " + id);
+
+        }
+        account.withdraw(amount);
+        return account;
+    }
 
     // public void transfer(String fromId, String toId, BigDecimal amount) { ... }
 

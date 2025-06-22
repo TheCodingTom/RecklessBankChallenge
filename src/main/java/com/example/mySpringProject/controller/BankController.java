@@ -40,5 +40,11 @@ public class BankController {
         bankService.deposit(id, amount);
     }
 
-    // Add withdraw and transfer endpoints here
+    @PostMapping("/accounts/{id}/withdraw")
+    public Account withdraw(@PathVariable String id, @RequestBody Map<String, String> body) {
+        BigDecimal amount = new BigDecimal(body.get("amount"));
+        return bankService.withdraw(id, amount);
+    }
+
+    // Add transfer endpoint here
 }

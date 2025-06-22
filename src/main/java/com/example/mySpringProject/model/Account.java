@@ -17,9 +17,9 @@ public class Account {
         balance = balance.add(amount);
     }
 
-    public synchronized void withdraw(BigDecimal amount) throws Exception {
+    public synchronized void withdraw(BigDecimal amount) {
         if (balance.compareTo(amount) < 0) {
-            throw new Exception("Insufficient funds");
+            throw new IllegalArgumentException("Insufficient funds");
         }
         balance = balance.subtract(amount);
     }
