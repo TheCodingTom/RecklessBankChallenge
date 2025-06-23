@@ -3,7 +3,7 @@ import { useState } from "react";
 export default function AccountForm() {
   const [accountId, setAccountId] = useState("");
 
-  // add event type to avoid TS error
+  // TODO: add event type to avoid TS error
   const handleCreateAccount = async (e) => {
     e.preventDefault();
 
