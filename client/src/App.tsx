@@ -3,6 +3,9 @@ import AccountForm from "./components/AccountForm";
 import DepositForm from "./components/DepositForm";
 import TransferForm from "./components/TransferForm";
 import WithdrawForm from "./components/WithdrawForm";
+import Accounts from "./pages/Accounts";
+
+// TODO: Implement React Router and organize each component/feature into separate pages for better structure and navigation
 
 function App() {
   return (
@@ -12,6 +15,7 @@ function App() {
       <DepositForm />
       <WithdrawForm />
       <TransferForm />
+      <Accounts />
     </>
   );
 }
