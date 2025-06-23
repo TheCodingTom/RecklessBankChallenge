@@ -1,6 +1,7 @@
 import "./App.css";
 import AccountForm from "./components/AccountForm";
 import DepositForm from "./components/DepositForm";
+import TransferForm from "./components/TransferForm";
 import WithdrawForm from "./components/WithdrawForm";
 
 function App() {
@@ -10,6 +11,7 @@ function App() {
       <AccountForm />
       <DepositForm />
       <WithdrawForm />
+      <TransferForm />
     </>
   );
 }
