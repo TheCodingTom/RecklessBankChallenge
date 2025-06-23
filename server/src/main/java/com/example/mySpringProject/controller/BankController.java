@@ -18,7 +18,7 @@ import com.example.mySpringProject.service.BankService;
 
 @RestController
 @RequestMapping("/api")
-@CrossOrigin(origins = "http://localhost:3000") // so React can connect
+@CrossOrigin(origins = "http://localhost:5173") // so React can connect
 public class BankController {
 
     @Autowired
