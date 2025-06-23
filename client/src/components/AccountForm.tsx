@@ -29,17 +29,20 @@ export default function AccountForm() {
   };
 
   return (
-    <form onSubmit={handleCreateAccount}>
-      <label>
-        Account ID:
-        <input
-          type="text"
-          value={accountId}
-          onChange={(e) => setAccountId(e.target.value)}
-          required
-        />
-      </label>
-      <button type="submit">Create</button>
-    </form>
+    <div>
+      <h2>Create account</h2>
+      <form onSubmit={handleCreateAccount}>
+        <label>
+          Account ID:
+          <input
+            type="text"
+            value={accountId}
+            onChange={(e) => setAccountId(e.target.value)}
+            required
+          />
+        </label>
+        <button type="submit">Create</button>
+      </form>
+    </div>
   );
 }

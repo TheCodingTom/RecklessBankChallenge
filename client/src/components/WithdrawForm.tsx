@@ -1,16 +1,16 @@
 import { useState } from "react";
 
-function DepositForm() {
+function WithdrawForm() {
   const [accountId, setAccountId] = useState("");
   const [amount, setAmount] = useState("");
 
   // TODO: add event type to avoid TS error
-  const handleDeposit = async (e) => {
+  const handleWithdraw = async (e) => {
     e.preventDefault();
 
     try {
       const response = await fetch(
-        `http://localhost:8080/api/accounts/${accountId}/deposit`,
+        `http://localhost:8080/api/accounts/${accountId}/withdraw`,
         {
           method: "POST",
           headers: { "Content-Type": "application/json" },
@@ -25,7 +25,7 @@ function DepositForm() {
       }
 
       const result = await response.json();
-      console.log("Deposit was successfull:", result);
+      console.log("Withdrawal was successfull:", result);
       setAccountId("");
       setAmount("");
     } catch (err) {
@@ -35,8 +35,8 @@ function DepositForm() {
 
   return (
     <div>
-      <h2>Deposit money</h2>
-      <form onSubmit={handleDeposit}>
+      <h2>Withdraw money</h2>
+      <form onSubmit={handleWithdraw}>
         <label>
           Account ID:
           <input
@@ -57,10 +57,10 @@ function DepositForm() {
             required
           />
         </label>
-        <button type="submit">Deposit</button>
+        <button type="submit">Withdraw</button>
       </form>
     </div>
   );
 }
 
-export default DepositForm;
+export default WithdrawForm;
