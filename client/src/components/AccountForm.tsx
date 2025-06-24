@@ -1,7 +1,10 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
+import { AccountsContext } from "../context/AccountsContext";
 
 export default function AccountForm() {
   const [accountId, setAccountId] = useState("");
+
+  const { accounts, getAccounts } = useContext(AccountsContext);
 
   // TODO: add event type to avoid TS error
   const handleCreateAccount = async (e) => {
@@ -22,6 +25,7 @@ export default function AccountForm() {
 
       const result = await response.json();
       console.log("Created account:", result);
+      getAccounts();
       setAccountId("");
     } catch (err) {
       console.error(err);
@@ -43,6 +47,18 @@ export default function AccountForm() {
         </label>
         <button type="submit">Create</button>
       </form>
+
+      <div>
+        <h2>Accounts</h2>
+        <ul>
+          {accounts &&
+            accounts.map((account) => (
+              <li key={account.id}>
+                ID: {account.id} - Balance: {account.balance}
+              </li>
+            ))}
+        </ul>
+      </div>
     </div>
   );
 }

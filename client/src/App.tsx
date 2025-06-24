@@ -3,6 +3,7 @@ import AccountForm from "./components/AccountForm";
 import DepositForm from "./components/DepositForm";
 import TransferForm from "./components/TransferForm";
 import WithdrawForm from "./components/WithdrawForm";
+import { AccountsContextProvider } from "./context/AccountsContext";
 import Accounts from "./pages/Accounts";
 
 /*
@@ -20,12 +21,14 @@ import Accounts from "./pages/Accounts";
 function App() {
   return (
     <>
-      <h1>Fast & Reckless Bank</h1>
-      <AccountForm />
-      <DepositForm />
-      <WithdrawForm />
-      <TransferForm />
-      <Accounts />
+      <AccountsContextProvider>
+        <h1>Fast & Reckless Bank</h1>
+        <AccountForm />
+        <DepositForm />
+        <WithdrawForm />
+        <TransferForm />
+        <Accounts />
+      </AccountsContextProvider>
     </>
   );
 }

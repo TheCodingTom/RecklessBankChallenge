@@ -1,31 +1,33 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
+import { AccountsContext } from "../context/AccountsContext";
 
 /* TODO: Create an AccountContext or a custom hook to centralize account logic
  and trigger updates across components on new accounts, deposits, withdrawals and transfers */
 
-type AccountType = {
+export type AccountType = {
   id: string;
   balance: number;
 };
 
 function Accounts() {
-  const [accounts, setAccounts] = useState<AccountType[]>([]);
-  const getAccounts = async () => {
-    try {
-      const response = await fetch("http://localhost:8080/api/accounts", {
-        method: "GET",
-      });
-      const result = await response.json();
-      console.log("accounts:", result);
-      setAccounts(result);
-    } catch (error) {
-      console.error(error);
-    }
-  };
+  const { accounts, getAccounts } = useContext(AccountsContext);
+  // const [accounts, setAccounts] = useState<AccountType[]>([]);
+  // const getAccounts = async () => {
+  //   try {
+  //     const response = await fetch("http://localhost:8080/api/accounts", {
+  //       method: "GET",
+  //     });
+  //     const result = await response.json();
+  //     console.log("accounts:", result);
+  //     setAccounts(result);
+  //   } catch (error) {
+  //     console.error(error);
+  //   }
+  // };
 
-  useEffect(() => {
-    getAccounts();
-  }, []);
+  // useEffect(() => {
+  //   getAccounts();
+  // }, []);
 
   return (
     <div>

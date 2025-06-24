@@ -4,6 +4,8 @@ function DepositForm() {
   const [accountId, setAccountId] = useState("");
   const [amount, setAmount] = useState("");
 
+  const [error, setError] = useState("");
+
   // TODO: add event type to avoid TS error
   const handleDeposit = async (e) => {
     e.preventDefault();
@@ -30,6 +32,7 @@ function DepositForm() {
       setAmount("");
     } catch (err) {
       console.error(err);
+      setError("Account not found");
     }
   };
 
@@ -59,6 +62,7 @@ function DepositForm() {
         </label>
         <button type="submit">Deposit</button>
       </form>
+      {error ? error : ""}
     </div>
   );
 }

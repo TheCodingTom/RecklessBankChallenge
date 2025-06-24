@@ -17,8 +17,14 @@ public class BankService {
     private final Map<String, Account> accounts = new ConcurrentHashMap<>();
 
     public Account createAccount(String id) {
+
+        if (accounts.containsKey(id)) {
+            throw new IllegalArgumentException("Account with ID:" + id + "already exists");
+        }
+
         Account acc = new Account(id);
         accounts.put(id, acc);
+
         return acc;
     }
 
