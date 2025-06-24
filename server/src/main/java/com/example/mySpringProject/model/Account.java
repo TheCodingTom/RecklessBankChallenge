@@ -24,7 +24,7 @@ public class Account {
         balance = balance.subtract(amount);
     }
 
-    // Getters and setters
+    // Getters - no need for setters
     public String getId() {
         return id;
     }
